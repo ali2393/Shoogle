@@ -5,7 +5,7 @@ var pSpawningObject2: GameObject;
 var pSpawningObject3: GameObject;
 var num : int = 0;
 
-var numberOfEnemies = 4;
+var numberOfEnemies : int = 4;
 var spawnTime: float = 2.0;
 var currentTime: float = 0;
 
@@ -15,6 +15,8 @@ function Start()
 
 function Update()
 {
+	numberOfEnemies=Random.Range(3,6);
+	
 	currentTime+=Time.deltaTime;
 	
 	if(currentTime > spawnTime)
