@@ -29,10 +29,11 @@ function Update ()
 				 if (hit.collider.tag=="Social")
 				{
 					other=hit.collider;
-					print("Social");
+					
 					iSocial=iSocial+iStudyUp;
 					iWork=iWork-iWorkDo;
 					Destroy(other.gameObject);
+					print(iSocial);
 				}
 				
 				 if (hit.collider.tag=="Study")

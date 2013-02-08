@@ -5,8 +5,25 @@ var pWorkEvent: GameObject;
 
 var iCount : int;
 
+var stress : int;
+
+var studyLevel : int;
+var socialLevel : int;
+var workLevel : int;
+var amountOfLevels : int;
+
 function OnTriggerEnter(oEnd:Collider)
 {
+	
+	if(oEnd.tag=="WorkEvent")
+	{
+		//GetComponent("sObjectClick");
+		
+		if(GetComponent("sObjectClick").iWork<=5)
+		{
+			stress++;
+		}
+	}
 	
 	if(oEnd.tag==("WorkEvent")||("SocialEvent")||("StudyEvent"))
 	{
@@ -47,7 +64,7 @@ function OnTriggerEnter(oEnd:Collider)
 
 function Update()
 {
-	if (iCount==3)
+	if (iCount==amountOfLevels)
 	{
 		Application.LoadLevel("mainMenu");
 
