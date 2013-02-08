@@ -2,17 +2,17 @@
 var hit : RaycastHit;
 var other : Collider;
 
-public var iWorkUp : int;
-public var iSocialUp : int;
-public var iStudyUp : int;
+ var iWorkUp : int;
+ var iSocialUp : int;
+ var iStudyUp : int;
 
-public var iWorkDo : int;
-public var iSocialDo : int;
-public var iStudyDo : int;
+ var iWorkDo : int;
+ var iSocialDo : int;
+ var iStudyDo : int;
 
-public var iWork : int;
-public var iSocial : int;
-public var iStudy : int;
+ var iWork : int;
+ var iSocial : int;
+ var iStudy : int;
 
 function Start () {
 
@@ -29,28 +29,25 @@ function Update ()
 				 if (hit.collider.tag=="Social")
 				{
 					other=hit.collider;
-					print("Social");
 					iSocial=iSocial+iStudyUp;
 					iWork=iWork-iWorkDo;
-					Destroy(other.gameObject);
+					print("Social = " + iSocial);
 				}
 				
 				 if (hit.collider.tag=="Study")
 				{
 					other=hit.collider;
-					print("Study");
 					iStudy=iStudy+iStudyUp;
 					iSocial=iSocial-iSocialDo;
-					Destroy(other.gameObject);
+					print("Study = " + iStudy);
 				}
 				
 				 if (hit.collider.tag=="Work")
 				{
 					other=hit.collider;
-					print("Work");
 					iWork=iWork+iWorkUp;
 					iStudy=iStudy-iStudyDo;
-					Destroy(other.gameObject);
+					print("Work = "+ iWork);
 				}		
 				
 			}
