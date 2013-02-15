@@ -29,30 +29,28 @@ function Update ()
 				 if (hit.collider.tag=="Social")
 				{
 					other=hit.collider;
-					
 					iSocial=iSocial+iStudyUp;
 					iWork=iWork-iWorkDo;
 					Destroy(other.gameObject);
-					print(iSocial);
+					print("Social="+iSocial);
 				}
 				
 				 if (hit.collider.tag=="Study")
 				{
 					other=hit.collider;
-					print("Study");
 					iStudy=iStudy+iStudyUp;
 					iSocial=iSocial-iSocialDo;
 					Destroy(other.gameObject);
+					print("Study="+iStudy);
 				}
 				
 				 if (hit.collider.tag=="Work")
 				{
 					other=hit.collider;
-					print("Work");
 					iWork=iWork+iWorkUp;
 					iStudy=iStudy-iStudyDo;
 					Destroy(other.gameObject);
-				}		
+					print("Work="+iWork);				}		
 				
 			}
 		}		
