@@ -14,13 +14,19 @@ public var iWork : int;
 public var iSocial : int;
 public var iStudy : int;
 
-function Start () {
+var pauseClicking: sPauseGame;
 
+function Start () 
+{
+	pauseClicking = GameObject.Find("oPlayer").GetComponent("sPauseGame");
 }
 
 function Update () 
 {
-	if (Input.GetButtonDown("Fire1")){
+	if (pauseClicking.paused == false)
+	{
+	if (Input.GetButtonDown("Fire1"))
+		{
 			print("mouse clicked");
 			var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, hit, Mathf.Infinity))
@@ -50,8 +56,22 @@ function Update ()
 					iWork=iWork+iWorkUp;
 					iStudy=iStudy-iStudyDo;
 					Destroy(other.gameObject);
-					print("Work="+iWork);				}		
+					print("Work="+iWork);				
+				}		
 				
 			}
-		}		
+		}
+	}		
 }
+
+/*function Pause ()
+{
+	if (pauseClicking==false)
+	{
+		pauseClicking==true
+	}
+	if (pauseClicking==true)
+	{
+		pauseClicking==false
+	}
+}*/

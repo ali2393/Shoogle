@@ -9,12 +9,17 @@ var numberOfEnemies : int = 4;
 var spawnTime: float = 2.0;
 var currentTime: float = 0;
 
+var pauseSpawning: sPauseGame;
+
 function Start()
 {
+	pauseSpawning = GameObject.Find("oPlayer").GetComponent("sPauseGame");
 }
 
 function Update()
 {
+	if (pauseSpawning.paused == false)
+	{
 	numberOfEnemies=Random.Range(3,6);
 	
 	currentTime+=Time.deltaTime;
@@ -49,7 +54,20 @@ function Update()
 
 		
 	}
+	}
 	
 	
 	
 }
+
+/*function Pause ()
+{
+	if (pauseSpawning==false)
+	{
+		pauseSpawning==true
+	}
+	if (pauseSpawning==true)
+	{
+		pauseSpawning==false
+	}
+}*/
