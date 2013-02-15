@@ -3,6 +3,8 @@ var pSocialEvent: GameObject;
 var pStudyEvent: GameObject;
 var pWorkEvent: GameObject;
 
+var pEvent: GameObject;
+
 var iCount : int;
 
 var stress : int;
@@ -11,6 +13,10 @@ var studyLevel : int;
 var socialLevel : int;
 var workLevel : int;
 var amountOfLevels : int;
+
+var study: Material;
+var social: Material;
+var work: Material;
 
 function OnTriggerEnter(oEnd:Collider)
 {
@@ -27,7 +33,7 @@ function OnTriggerEnter(oEnd:Collider)
 	
 	if(oEnd.tag==("WorkEvent")||("SocialEvent")||("StudyEvent"))
 	{
-		num=Random.Range(1,4);
+		num=Random.Range(1,3);
 		
 		if (num==1)
 		{			
@@ -35,7 +41,10 @@ function OnTriggerEnter(oEnd:Collider)
 			Destroy (GameObject.FindWithTag("SocialEvent"));
 			Destroy (GameObject.FindWithTag("StudyEvent"));
 			
-			var clonepSocialEvent : GameObject = Instantiate(pSocialEvent, new Vector3(0,0,0), pSocialEvent.transform.rotation) as GameObject;
+			pEvent.tag="StudyEvent";
+			pEvent.renderer.material=study;
+			//pEvent.child.tag="StudyEvent";
+			var clonepSocialEvent : GameObject = Instantiate(pEvent, new Vector3(0,0,0), pEvent.transform.rotation) as GameObject;
 		}
 		
 		if (num==2)
@@ -44,8 +53,10 @@ function OnTriggerEnter(oEnd:Collider)
 			Destroy (GameObject.FindWithTag("SocialEvent"));
 			Destroy (GameObject.FindWithTag("StudyEvent"));
 			
-			var clonepStudyEvent: GameObject = Instantiate(pStudyEvent, new Vector3(0,0,0), pStudyEvent.transform.rotation) as GameObject;
-
+			pEvent.tag="SocialEvent";
+			pEvent.renderer.material=social;
+			//pEvent.child.tag="StudyEvent";
+			var clonepStudyEvent : GameObject = Instantiate(pEvent, new Vector3(0,0,0), pEvent.transform.rotation) as GameObject;
 		}
 		
 		if (num==3)
@@ -54,8 +65,10 @@ function OnTriggerEnter(oEnd:Collider)
 			Destroy (GameObject.FindWithTag("SocialEvent"));
 			Destroy (GameObject.FindWithTag("StudyEvent"));
 			
-			var clonepWorkEvent : GameObject = Instantiate(pWorkEvent, new Vector3(0,0,0), pWorkEvent.transform.rotation) as GameObject;
-
+			pEvent.tag="WorkEvent";
+			pEvent.renderer.material=work;
+			//pEvent.child.tag="StudyEvent";
+			var clonepWorkEvent : GameObject = Instantiate(pEvent, new Vector3(0,0,0), pEvent.transform.rotation) as GameObject;
 		}
 		
 		iCount++;
