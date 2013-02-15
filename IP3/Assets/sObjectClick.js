@@ -2,6 +2,8 @@
 var hit : RaycastHit;
 var other : Collider;
 
+var stress : sGUI;
+
 public var iWorkUp : int;
 public var iSocialUp : int;
 public var iStudyUp : int;
@@ -15,6 +17,8 @@ public var iSocial : int;
 public var iStudy : int;
 
 function Start () {
+stress=GameObject.Find("Cube3").GetComponent("sGUI");
+
 
 }
 
@@ -34,6 +38,7 @@ function Update ()
 					iWork=iWork-iWorkDo;
 					Destroy(other.gameObject);
 					print(iSocial);
+					stress.Stress();
 				}
 				
 				 if (hit.collider.tag=="Study")
@@ -43,6 +48,7 @@ function Update ()
 					iStudy=iStudy+iStudyUp;
 					iSocial=iSocial-iSocialDo;
 					Destroy(other.gameObject);
+					stress.Stress();
 				}
 				
 				 if (hit.collider.tag=="Work")
@@ -52,6 +58,7 @@ function Update ()
 					iWork=iWork+iWorkUp;
 					iStudy=iStudy-iStudyDo;
 					Destroy(other.gameObject);
+					stress.Stress();
 				}		
 				
 			}
