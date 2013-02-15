@@ -23,8 +23,8 @@ function Start ()
 
 function Update () 
 {
-	if (pauseClicking.paused == false)
-	{
+	//if (pauseClicking.paused == false)
+	//{
 	if (Input.GetButtonDown("Fire1"))
 		{
 			print("mouse clicked");
@@ -57,10 +57,18 @@ function Update ()
 					iStudy=iStudy-iStudyDo;
 					Destroy(other.gameObject);
 					print("Work="+iWork);				
-				}		
+				}	
+				
+				if (hit.collider.tag=="ExitButon")
+				{
+					pauseClicking.pause();   
+					//print ("Game Is paused");
+					//GameObject.Find("oPause").renderer.enabled =false;
+//GameObject.Find("oExit").renderer.enabled =false;
+				}	
 				
 			}
-		}
+		//}
 	}		
 }
 
