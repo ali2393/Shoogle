@@ -32,6 +32,7 @@ function Update ()
 					iSocial=iSocial+iStudyUp;
 					iWork=iWork-iWorkDo;
 					print("Social = " + iSocial);
+					print("Work= " +iWork);
 				}
 				
 				 if (hit.collider.tag=="Study")
@@ -40,6 +41,7 @@ function Update ()
 					iStudy=iStudy+iStudyUp;
 					iSocial=iSocial-iSocialDo;
 					print("Study = " + iStudy);
+					print("Social= " +iSocial);
 				}
 				
 				 if (hit.collider.tag=="Work")
@@ -48,6 +50,7 @@ function Update ()
 					iWork=iWork+iWorkUp;
 					iStudy=iStudy-iStudyDo;
 					print("Work = "+ iWork);
+					print("Study= " +iStudy);
 				}		
 				
 			}
