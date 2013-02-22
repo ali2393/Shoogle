@@ -33,7 +33,7 @@ function OnTriggerEnter(oEnd:Collider)
 	
 	if(oEnd.tag==("WorkEvent")||("SocialEvent")||("StudyEvent"))
 	{
-		num=Random.Range(1,3);
+		num=Random.Range(1,4);
 		
 		if (num==1)
 		{			
