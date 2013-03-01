@@ -41,10 +41,9 @@ function OnTriggerEnter(oEnd:Collider)
 			Destroy (GameObject.FindWithTag("SocialEvent"));
 			Destroy (GameObject.FindWithTag("StudyEvent"));
 			
-			pEvent.tag="StudyEvent";
-			pEvent.renderer.material=study;
+
 			//pEvent.child.tag="StudyEvent";
-			var clonepSocialEvent : GameObject = Instantiate(pEvent, new Vector3(0,0,0), pEvent.transform.rotation) as GameObject;
+			var clonepSocialEvent : GameObject = Instantiate(pStudyEvent, new Vector3(-10.65664,0.164176,-10.5864), pStudyEvent.transform.rotation) as GameObject;
 		}
 		
 		if (num==2)
@@ -53,10 +52,9 @@ function OnTriggerEnter(oEnd:Collider)
 			Destroy (GameObject.FindWithTag("SocialEvent"));
 			Destroy (GameObject.FindWithTag("StudyEvent"));
 			
-			pEvent.tag="SocialEvent";
-			pEvent.renderer.material=social;
+
 			//pEvent.child.tag="StudyEvent";
-			var clonepStudyEvent : GameObject = Instantiate(pEvent, new Vector3(0,0,0), pEvent.transform.rotation) as GameObject;
+			var clonepStudyEvent : GameObject = Instantiate(pStudyEvent, new Vector3(-10.65664,0.164176,-10.5864), pStudyEvent.transform.rotation) as GameObject;
 		}
 		
 		if (num==3)
@@ -65,10 +63,8 @@ function OnTriggerEnter(oEnd:Collider)
 			Destroy (GameObject.FindWithTag("SocialEvent"));
 			Destroy (GameObject.FindWithTag("StudyEvent"));
 			
-			pEvent.tag="WorkEvent";
-			pEvent.renderer.material=work;
 			//pEvent.child.tag="StudyEvent";
-			var clonepWorkEvent : GameObject = Instantiate(pEvent, new Vector3(0,0,0), pEvent.transform.rotation) as GameObject;
+			var clonepWorkEvent : GameObject = Instantiate(pStudyEvent, new Vector3(-10.65664,0.164176,-10.5864), pStudyEvent.transform.rotation) as GameObject;
 		}
 		
 		iCount++;

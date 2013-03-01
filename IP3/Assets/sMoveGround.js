@@ -5,5 +5,5 @@ var fScrollSpeed :float=0.01;
 function Update () 
 {
 	//(AL) Moving the ground at a set rate
-	transform.Translate(fScrollSpeed,0.0,0.0);
+	transform.Translate(0.0,0.0,fScrollSpeed);
 }
