@@ -1,10 +1,11 @@
 #pragma strict
 
-function Start () {
-	
-
+function Start () 
+{
 }
 
-function Update () {
-animation.Play();
+function Update () 
+{
+	//Run animation on the current rig
+	animation.Play();
 }

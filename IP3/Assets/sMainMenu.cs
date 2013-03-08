@@ -19,28 +19,28 @@ public class sMainMenu: MonoBehaviour
 	
 	void OnGUI() 
 	{
-		//(AL) Draw the start button on the screen
+		//Draw the start button on the screen
 		GUI.DrawTexture(new Rect(0,0,Screen.width,Screen.height),MainMenuBackgroundImage);
 		//float buttonyPosition=ButtonYStart;
 		
- 		//(AL) If he button is pressed
+ 		//If he button is pressed
 		if (GUI.Button(new Rect(Screen.width/dplay, Screen.height*dquit, Screen.width/5.0f, Screen.height/5.0f), "Play"))
 		{
-			//(AL) Load level 1
+			//Load level 1
 			Application.LoadLevel("Level1");
 		}
 		
-		//(AL) If he button is pressed
+		//If he button is pressed
 		if (GUI.Button(new Rect(Screen.width/dplay + (Screen.width/5.0f) + 10.0f, Screen.height*dquit, Screen.width/5.0f, Screen.height/5.0f), "Exit"))
 		{
-			//(AL) Exit the game
+			//Exit the game
 			Application.LoadLevel("Level4");
 		}
 
 
 	}		
 	
-	// Update is called once per frame
+	//Update is called once per frame
 	void Update () 
 	{
 	}

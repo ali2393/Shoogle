@@ -31,38 +31,44 @@ function OnTriggerEnter(oEnd:Collider)
 		}
 	}
 	
+	//When you hit the end of an event (the wall) then do the following code
 	if(oEnd.tag==("WorkEvent")||("SocialEvent")||("StudyEvent"))
 	{
+		// Generate a random number
 		num=Random.Range(1,4);
 		
+		//If the random number is 1 then spawn a clone of the Social Event
 		if (num==1)
 		{			
 			Destroy (GameObject.FindWithTag("WorkEvent"));
 			Destroy (GameObject.FindWithTag("SocialEvent"));
 			Destroy (GameObject.FindWithTag("StudyEvent"));
 			
-
+			//Spawning Code
 			//pEvent.child.tag="StudyEvent";
 			var clonepSocialEvent : GameObject = Instantiate(pStudyEvent, new Vector3(-10.65664,0.164176,-10.5864), pStudyEvent.transform.rotation) as GameObject;
 		}
 		
+		//If the random number is 2 then spawn a clone of the Study Event
 		if (num==2)
 		{
 			Destroy (GameObject.FindWithTag("WorkEvent"));
 			Destroy (GameObject.FindWithTag("SocialEvent"));
 			Destroy (GameObject.FindWithTag("StudyEvent"));
 			
-
+			//Spawning Code
 			//pEvent.child.tag="StudyEvent";
 			var clonepStudyEvent : GameObject = Instantiate(pStudyEvent, new Vector3(-10.65664,0.164176,-10.5864), pStudyEvent.transform.rotation) as GameObject;
 		}
 		
+		//If the random number is 3 then spawn a clone of the Social Event
 		if (num==3)
 		{
 			Destroy (GameObject.FindWithTag("WorkEvent"));
 			Destroy (GameObject.FindWithTag("SocialEvent"));
 			Destroy (GameObject.FindWithTag("StudyEvent"));
 			
+			//Spawning Code	
 			//pEvent.child.tag="StudyEvent";
 			var clonepWorkEvent : GameObject = Instantiate(pStudyEvent, new Vector3(-10.65664,0.164176,-10.5864), pStudyEvent.transform.rotation) as GameObject;
 		}
@@ -73,8 +79,10 @@ function OnTriggerEnter(oEnd:Collider)
 
 function Update()
 {
+	//counting the number of levels to be plaed
 	if (iCount==amountOfLevels)
 	{
+		//after set amount of levels are done then go back o the main menu
 		Application.LoadLevel("mainMenu");
 
 	}
