@@ -46,7 +46,7 @@ function OnTriggerEnter(oEnd:Collider)
 			
 			//Spawning Code
 			//pEvent.child.tag="StudyEvent";
-			var clonepSocialEvent : GameObject = Instantiate(pStudyEvent, new Vector3(-10.65664,0.164176,-10.5864), pStudyEvent.transform.rotation) as GameObject;
+			var clonepSocialEvent : GameObject = Instantiate(pStudyEvent, new Vector3(-9.908167,0.188241,0.09814334), pStudyEvent.transform.rotation) as GameObject;
 		}
 		
 		//If the random number is 2 then spawn a clone of the Study Event
@@ -58,7 +58,7 @@ function OnTriggerEnter(oEnd:Collider)
 			
 			//Spawning Code
 			//pEvent.child.tag="StudyEvent";
-			var clonepStudyEvent : GameObject = Instantiate(pStudyEvent, new Vector3(-10.65664,0.164176,-10.5864), pStudyEvent.transform.rotation) as GameObject;
+			var clonepStudyEvent : GameObject = Instantiate(pSocialEvent, new Vector3(-9.908167,0.188241,0.09814334), pStudyEvent.transform.rotation) as GameObject;
 		}
 		
 		//If the random number is 3 then spawn a clone of the Social Event
@@ -70,7 +70,7 @@ function OnTriggerEnter(oEnd:Collider)
 			
 			//Spawning Code	
 			//pEvent.child.tag="StudyEvent";
-			var clonepWorkEvent : GameObject = Instantiate(pStudyEvent, new Vector3(-10.65664,0.164176,-10.5864), pStudyEvent.transform.rotation) as GameObject;
+			var clonepWorkEvent : GameObject = Instantiate(pWorkEvent, new Vector3(-9.908167,0.188241,0.09814334), pStudyEvent.transform.rotation) as GameObject;
 		}
 		
 		iCount++;

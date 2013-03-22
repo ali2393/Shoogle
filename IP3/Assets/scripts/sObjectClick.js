@@ -2,12 +2,15 @@
 var hit : RaycastHit;
 var other : Collider;
 
-//The values that go up for the work social and study bars
+var stress : sGUI;
+var work : sWorkGUI;
+var social : sSocialGUI;
+var study : sStudyGUI;
+
 public var iWorkUp : int;
 public var iSocialUp : int;
 public var iStudyUp : int;
 
-//The values that go down for the work social and study bars
 public var iWorkDo : int;
 public var iSocialDo : int;
 public var iStudyDo : int;
@@ -16,47 +19,54 @@ public var iWork : int;
 public var iSocial : int;
 public var iStudy : int;
 
-function Start () 
-{
+function Start () {
+stress=GameObject.Find("Cube3").GetComponent("sGUI");
+work=GameObject.Find("Cube6").GetComponent("sWorkGUI");
+social=GameObject.Find("Cube9").GetComponent("sSocialGUI");
+study=GameObject.Find("Cube12").GetComponent("sStudyGUI");
+
 }
 
 function Update () 
 {
-	//Checked to see if the mouse has been clicked at a set location 
 	if (Input.GetButtonDown("Fire1")){
 			print("mouse clicked");
 			var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, hit, Mathf.Infinity))
 			{
-				//if the ray cast hits an object with the tag social then change the variable
 				print("hit");
-				if (hit.collider.tag=="Social")
+				 if (hit.collider.tag=="Social")
 				{
 					other=hit.collider;
+					
 					iSocial=iSocial+iStudyUp;
 					iWork=iWork-iWorkDo;
 					Destroy(other.gameObject);
-					print("Social="+iSocial);
+					print(iSocial);
+					social.Social();
+					work.NotWork();
 				}
 				
-				//if the ray cast hits an object with the tag study then change the variable
-				if (hit.collider.tag=="Study")
+				 if (hit.collider.tag=="Study")
 				{
 					other=hit.collider;
+					print("Study");
 					iStudy=iStudy+iStudyUp;
 					iSocial=iSocial-iSocialDo;
 					Destroy(other.gameObject);
-					print("Study="+iStudy);
+					study.Study();
+					social.NotSocial();
 				}
 				
-				//if the ray cast hits an object with the tag study then change the variable
-				if (hit.collider.tag=="Work")
+				 if (hit.collider.tag=="Work")
 				{
 					other=hit.collider;
+					print("Work");
 					iWork=iWork+iWorkUp;
 					iStudy=iStudy-iStudyDo;
 					Destroy(other.gameObject);
-					print("Work="+iWork);		
+					work.Work();
+					study.NotStudy();
 				}		
 				
 			}
