@@ -45,5 +45,5 @@ function Update () {
 
 function Stress()
 {
-	stress--;
+	stress++;
 }
