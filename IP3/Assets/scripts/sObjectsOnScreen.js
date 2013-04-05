@@ -56,7 +56,7 @@ function Update()
 		StudyLevels.study=10;
 	}
 	
-	if(StressLevels.stress==10)
+	if(StressLevels.stress>=10)
 	{
 		Application.LoadLevel("endScene");
 	}
@@ -74,23 +74,20 @@ function Update()
 		if (recentlyClicked.recentlyClicked == 0 && gettingstress==0)
 		{
 			StressLevels.stress --;
-			//SocialLevels.social --;
-			//StudyLevels.study --;
-			//WorkLevels.work --;
 		}
 		
-		recentlyClicked.recentlyClicked = 0;
-		
-		if(SocialLevels.social < 2 || WorkLevels.work < 2 || StudyLevels.study < 2)
+		if(SocialLevels.social < 1 || WorkLevels.work < 1 || StudyLevels.study < 1)
 		{
 			gettingstress=1;
 			StressLevels.stress ++;
 		}
 		
-		if(SocialLevels.social > 2 && WorkLevels.work > 2 && StudyLevels.study > 2)
+		if(SocialLevels.social > 1 && WorkLevels.work > 1 && StudyLevels.study > 1)
 		{
 			gettingstress=0;
 		}
+		
+		recentlyClicked.recentlyClicked = 0;
 		
 		//reset time
 		currentTime = 0;

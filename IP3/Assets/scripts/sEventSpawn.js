@@ -18,30 +18,35 @@ var study: Material;
 var social: Material;
 var work: Material;
 
+var SocialLevels:sSocialGUI;
+var WorkLevels:sWorkGUI;
+var StudyLevels:sStudyGUI;
+var StressLevels:sGUI;
+
 function OnTriggerEnter(oEnd:Collider)
 {
 	
 	if(oEnd.tag=="WorkEvent")
 	{
-		if(GetComponent("sObjectClick").iWork<7)
+		if(WorkLevels.work<7)
 		{
-			stress = stress + (7 - GetComponent("sObjectClick").iWork);
+			StressLevels.stress = StressLevels.stress + (6 - WorkLevels.work);
 		}
 	}
 	
 	if(oEnd.tag=="SocialEvent")
 	{
-		if(GetComponent("sObjectClick").iSocial<7)
+		if(SocialLevels.social<7)
 		{
-			stress = stress + (7 - GetComponent("sObjectClick").iSocial);
+			StressLevels.stress = StressLevels.stress + (6 - SocialLevels.social);
 		}
 	}
 	
 	if(oEnd.tag=="StudyEvent")
 	{
-		if(GetComponent("sObjectClick").iStudy<7)
+		if(StudyLevels.study<7)
 		{
-			stress = stress + (7 - GetComponent("sObjectClick").iStudy);
+			StressLevels.stress = StressLevels.stress + (6 - StudyLevels.study);
 		}
 	}
 	
@@ -49,11 +54,6 @@ function OnTriggerEnter(oEnd:Collider)
 	//When you hit the end of an event (the wall) then do the following code
 	if(oEnd.tag==("WorkEvent")||("SocialEvent")||("StudyEvent"))
 	{
-		if (stress==10)
-		{
-			Application.Loadlevel("mainMenu");
-		}
-		
 		// Generate a random number
 		num=Random.Range(1,4);
 		
@@ -105,9 +105,4 @@ function Update()
 		Application.LoadLevel("mainMenu");
 
 	}
-}
-
-function StressIncrease()
-{
-	stress ++;
 }
