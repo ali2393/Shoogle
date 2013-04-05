@@ -15,6 +15,8 @@ function Start () {
 
 function Update () {
 	
+	//social=GameObject.Find("oPlayer").GetComponent("sObjectClick").iSocial;
+	
 	if (social >= 0)
 	{
 		iTween.MoveTo(Cube7,{"y":0.5});
@@ -24,20 +26,20 @@ function Update () {
 		iTween.MoveTo(Cube7,{"y":-10});
 	}
 	
-	if (social >= 100)
+	if (social >= 1)
 	{
 		iTween.MoveTo(Cube8,{"y":0.75});
 	}
-	if (social < 100)
+	if (social < 1)
 	{
 		iTween.MoveTo(Cube8,{"y":-9});
 	}
 	
-	if (social >= 200)
+	if (social >= 2)
 	{
 		iTween.MoveTo(Cube9,{"y":1});
 	}
-	if (social < 200)
+	if (social < 2)
 	{
 		iTween.MoveTo(Cube9,{"y":-8});
 	}
@@ -49,10 +51,10 @@ function Update () {
 
 function Social()
 {
-	social = social + 100;
+	social = social + 1;
 }
 
 function NotSocial()
 {
-	social =social -50;
+	social = social - 0.5;
 }

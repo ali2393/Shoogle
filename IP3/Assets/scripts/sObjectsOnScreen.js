@@ -9,6 +9,9 @@ var numberOfEnemies : int = 4;
 var spawnTime: float = 2.0;
 var currentTime: float = 0;
 
+var levels:sObjectClick;
+var eventSpawn:sEventSpawn;
+
 function Start()
 {
 }
@@ -24,6 +27,11 @@ function Update()
 	// spawn after set amount of time
 	if(currentTime > spawnTime)
 	{
+		
+		if(levels.iSocial<2 || levels.iWork<2 || levels.iStudy<2 )
+		{
+			eventSpawn.StressIncrease();
+		}
 		//reset time
 		currentTime = 0;
 		for (var i=0; i< numberOfEnemies;i ++)

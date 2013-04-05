@@ -23,17 +23,37 @@ function OnTriggerEnter(oEnd:Collider)
 	
 	if(oEnd.tag=="WorkEvent")
 	{
-		//GetComponent("sObjectClick");
-		
-		if(GetComponent("sObjectClick").iWork<=5)
+		if(GetComponent("sObjectClick").iWork<7)
 		{
-			stress++;
+			stress = stress + (7 - GetComponent("sObjectClick").iWork);
 		}
 	}
+	
+	if(oEnd.tag=="SocialEvent")
+	{
+		if(GetComponent("sObjectClick").iSocial<7)
+		{
+			stress = stress + (7 - GetComponent("sObjectClick").iSocial);
+		}
+	}
+	
+	if(oEnd.tag=="StudyEvent")
+	{
+		if(GetComponent("sObjectClick").iStudy<7)
+		{
+			stress = stress + (7 - GetComponent("sObjectClick").iStudy);
+		}
+	}
+	
 	
 	//When you hit the end of an event (the wall) then do the following code
 	if(oEnd.tag==("WorkEvent")||("SocialEvent")||("StudyEvent"))
 	{
+		if (stress==10)
+		{
+			Application.Loadlevel("mainMenu");
+		}
+		
 		// Generate a random number
 		num=Random.Range(1,4);
 		
@@ -69,7 +89,6 @@ function OnTriggerEnter(oEnd:Collider)
 			Destroy (GameObject.FindWithTag("StudyEvent"));
 			
 			//Spawning Code	
-			//pEvent.child.tag="StudyEvent";
 			var clonepWorkEvent : GameObject = Instantiate(pWorkEvent, new Vector3(-9.908167,0.188241,0.09814334), pStudyEvent.transform.rotation) as GameObject;
 		}
 		
@@ -79,11 +98,16 @@ function OnTriggerEnter(oEnd:Collider)
 
 function Update()
 {
-	//counting the number of levels to be plaed
+	//counting the number of levels to be placed
 	if (iCount==amountOfLevels)
 	{
 		//after set amount of levels are done then go back o the main menu
 		Application.LoadLevel("mainMenu");
 
 	}
+}
+
+function StressIncrease()
+{
+	stress ++;
 }

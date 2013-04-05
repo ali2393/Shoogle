@@ -13,6 +13,9 @@ function Start () {
 
 function Update () {
 	
+	//stress=GameObject.Find("oPlayer").GetComponent("sEventSpawn").stress;
+	
+	
 	if (stress >= 0)
 	{
 		iTween.MoveTo(Cube1,{"y":0.5});
@@ -22,20 +25,20 @@ function Update () {
 		iTween.MoveTo(Cube1,{"y":-10});
 	}
 	
-	if (stress >= 100)
+	if (stress >= 1)
 	{
 		iTween.MoveTo(Cube2,{"y":0.75});
 	}
-	if (stress < 100)
+	if (stress < 1)
 	{
 		iTween.MoveTo(Cube2,{"y":-10});
 	}
 	
-	if (stress >= 200)
+	if (stress >= 2)
 	{
 		iTween.MoveTo(Cube3,{"y":1});
 	}
-	if (stress < 200)
+	if (stress < 2)
 	{
 		iTween.MoveTo(Cube3,{"y":-10});
 	}

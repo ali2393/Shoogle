@@ -40,7 +40,10 @@ function Update ()
 					other=hit.collider;
 					
 					iSocial=iSocial+iStudyUp;
-					iWork=iWork-iWorkDo;
+					if (iWork != 0)
+					{
+						iWork=iWork-iWorkDo;
+					}
 					Destroy(other.gameObject);
 					print(iSocial);
 					social.Social();
@@ -52,7 +55,10 @@ function Update ()
 					other=hit.collider;
 					print("Study");
 					iStudy=iStudy+iStudyUp;
-					iSocial=iSocial-iSocialDo;
+					if (iSocial != 0)
+					{
+						iSocial=iSocial-iSocialDo;
+					}
 					Destroy(other.gameObject);
 					study.Study();
 					social.NotSocial();
@@ -63,7 +69,10 @@ function Update ()
 					other=hit.collider;
 					print("Work");
 					iWork=iWork+iWorkUp;
-					iStudy=iStudy-iStudyDo;
+					if (iStudy != 0)
+					{
+						iStudy=iStudy-iStudyDo;
+					}
 					Destroy(other.gameObject);
 					work.Work();
 					study.NotStudy();
