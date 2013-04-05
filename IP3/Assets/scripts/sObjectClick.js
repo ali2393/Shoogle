@@ -7,6 +7,8 @@ var work : sWorkGUI;
 var social : sSocialGUI;
 var study : sStudyGUI;
 
+var click : GameObject;
+
 public var iWorkUp : int;
 public var iSocialUp : int;
 public var iStudyUp : int;
@@ -19,11 +21,18 @@ public var iWork : int;
 public var iSocial : int;
 public var iStudy : int;
 
+
+var workcount : int;
+var studycount : int;
+var socialcount: int;
+
+var recentlyClicked : int;
+
 function Start () {
-stress=GameObject.Find("Cube3").GetComponent("sGUI");
-work=GameObject.Find("Cube6").GetComponent("sWorkGUI");
-social=GameObject.Find("Cube9").GetComponent("sSocialGUI");
-study=GameObject.Find("Cube12").GetComponent("sStudyGUI");
+stress=GameObject.Find("Stress3").GetComponent("sGUI");
+work=GameObject.Find("Work1").GetComponent("sWorkGUI");
+social=GameObject.Find("Social1").GetComponent("sSocialGUI");
+study=GameObject.Find("Study1").GetComponent("sStudyGUI");
 
 }
 
@@ -34,50 +43,42 @@ function Update ()
 			var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, hit, Mathf.Infinity))
 			{
-				print("hit");
-				 if (hit.collider.tag=="Social")
+				print("hit");		
+				if (hit.collider.tag=="Social")
 				{
+					recentlyClicked = 1;
 					other=hit.collider;
-					
-					iSocial=iSocial+iStudyUp;
-					if (iWork != 0)
-					{
-						iWork=iWork-iWorkDo;
-					}
 					Destroy(other.gameObject);
-					print(iSocial);
 					social.Social();
 					work.NotWork();
+					click.audio.Play();
+					socialcount++;
 				}
 				
-				 if (hit.collider.tag=="Study")
+				if (hit.collider.tag=="Study")
 				{
+					recentlyClicked = 1;
 					other=hit.collider;
-					print("Study");
-					iStudy=iStudy+iStudyUp;
-					if (iSocial != 0)
-					{
-						iSocial=iSocial-iSocialDo;
-					}
 					Destroy(other.gameObject);
 					study.Study();
 					social.NotSocial();
+					click.audio.Play();
+					studycount++;
 				}
 				
-				 if (hit.collider.tag=="Work")
+				if (hit.collider.tag=="Work")
 				{
+					recentlyClicked = 1;
 					other=hit.collider;
-					print("Work");
-					iWork=iWork+iWorkUp;
-					if (iStudy != 0)
-					{
-						iStudy=iStudy-iStudyDo;
-					}
 					Destroy(other.gameObject);
 					work.Work();
 					study.NotStudy();
+					click.audio.Play();
+					workcount++;
 				}		
 				
 			}
+			
+			
 		}		
 }

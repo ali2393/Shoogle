@@ -9,15 +9,58 @@ var numberOfEnemies : int = 4;
 var spawnTime: float = 2.0;
 var currentTime: float = 0;
 
-var levels:sObjectClick;
-var eventSpawn:sEventSpawn;
+var SocialLevels:sSocialGUI;
+var WorkLevels:sWorkGUI;
+var StudyLevels:sStudyGUI;
+var StressLevels:sGUI;
 
+
+var eventSpawn:sEventSpawn;
+var recentlyClicked:sObjectClick;
+
+var gettingstress : int;
 function Start()
 {
 }
 
 function Update()
 {
+	
+	if (WorkLevels.work<=0)
+	{
+		WorkLevels.work=0;
+	}
+	
+	if (SocialLevels.social<=0)
+	{
+		SocialLevels.social=0;
+	}
+	
+	if (StudyLevels.study<=0)
+	{
+		StudyLevels.study=0;
+	}
+	
+	if (WorkLevels.work>=10)
+	{
+		WorkLevels.work=10;
+	}
+	
+	if (SocialLevels.social>=10)
+	{
+		SocialLevels.social=10;
+	}
+	
+	if (StudyLevels.study>=10)
+	{
+		StudyLevels.study=10;
+	}
+	
+	if(StressLevels.stress==10)
+	{
+		Application.LoadLevel("endScene");
+	}
+	
 	//generate a random number
 	numberOfEnemies=Random.Range(3,6);
 	
@@ -28,10 +71,27 @@ function Update()
 	if(currentTime > spawnTime)
 	{
 		
-		if(levels.iSocial<2 || levels.iWork<2 || levels.iStudy<2 )
+		if (recentlyClicked.recentlyClicked == 0 && gettingstress==0)
 		{
-			eventSpawn.StressIncrease();
+			StressLevels.stress --;
+			//SocialLevels.social --;
+			//StudyLevels.study --;
+			//WorkLevels.work --;
 		}
+		
+		recentlyClicked.recentlyClicked = 0;
+		
+		if(SocialLevels.social < 2 || WorkLevels.work < 2 || StudyLevels.study < 2)
+		{
+			gettingstress=1;
+			StressLevels.stress ++;
+		}
+		
+		if(SocialLevels.social > 2 && WorkLevels.work > 2 && StudyLevels.study > 2)
+		{
+			gettingstress=0;
+		}
+		
 		//reset time
 		currentTime = 0;
 		for (var i=0; i< numberOfEnemies;i ++)
