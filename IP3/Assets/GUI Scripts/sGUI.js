@@ -111,6 +111,11 @@ function Update () {
 	{
 		iTween.MoveTo(Stress10,{"y":-10});
 	}
+	
+	if (stress <= 0)
+	{
+		stress = 0;
+	}
 
 }
 

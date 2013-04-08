@@ -3,6 +3,10 @@ var pSocialEvent: GameObject;
 var pStudyEvent: GameObject;
 var pWorkEvent: GameObject;
 
+var WorkBox : GameObject;
+var SocialBox : GameObject;
+var StudyBox : GameObject;
+
 var pEvent: GameObject;
 
 var iCount : int;
@@ -22,6 +26,11 @@ var SocialLevels:sSocialGUI;
 var WorkLevels:sWorkGUI;
 var StudyLevels:sStudyGUI;
 var StressLevels:sGUI;
+
+var workTag : int = 0;
+var socialTag : int = 0;
+var studyTag : int = 0;
+
 
 function OnTriggerEnter(oEnd:Collider)
 {
@@ -67,6 +76,10 @@ function OnTriggerEnter(oEnd:Collider)
 			//Spawning Code
 			//pEvent.child.tag="StudyEvent";
 			var clonepSocialEvent : GameObject = Instantiate(pStudyEvent, new Vector3(-9.908167,0.188241,0.09814334), pStudyEvent.transform.rotation) as GameObject;
+			
+			workTag = 0;
+			socialTag = 1;
+			studyTag = 0;
 		}
 		
 		//If the random number is 2 then spawn a clone of the Study Event
@@ -79,6 +92,10 @@ function OnTriggerEnter(oEnd:Collider)
 			//Spawning Code
 			//pEvent.child.tag="StudyEvent";
 			var clonepStudyEvent : GameObject = Instantiate(pSocialEvent, new Vector3(-9.908167,0.188241,0.09814334), pStudyEvent.transform.rotation) as GameObject;
+			
+			workTag = 0;
+			socialTag = 0;
+			studyTag = 1;			
 		}
 		
 		//If the random number is 3 then spawn a clone of the Social Event
@@ -90,6 +107,9 @@ function OnTriggerEnter(oEnd:Collider)
 			
 			//Spawning Code	
 			var clonepWorkEvent : GameObject = Instantiate(pWorkEvent, new Vector3(-9.908167,0.188241,0.09814334), pStudyEvent.transform.rotation) as GameObject;
+			workTag = 1;
+			socialTag = 0;
+			studyTag = 0;			
 		}
 		
 		iCount++;
@@ -104,5 +124,32 @@ function Update()
 		//after set amount of levels are done then go back o the main menu
 		Application.LoadLevel("mainMenu");
 
+	}
+	
+	if (workTag == 0)
+	{
+		iTween.MoveTo(WorkBox,{"y":-10});
+	}	
+	if (workTag == 1)
+	{
+		iTween.MoveTo(WorkBox,{"y":0.9});
+	}
+	
+	if (socialTag == 0)
+	{
+		iTween.MoveTo(SocialBox,{"y":-10});
+	}	
+	if (socialTag == 1)
+	{
+		iTween.MoveTo(SocialBox,{"y":0.9});
+	}
+	
+	if (studyTag == 0)
+	{
+		iTween.MoveTo(StudyBox,{"y":-10});
+	}	
+	if (studyTag == 1)
+	{
+		iTween.MoveTo(StudyBox,{"y":0.9});
 	}
 }
