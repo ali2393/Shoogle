@@ -58,7 +58,7 @@ function Update()
 	
 	if(StressLevels.stress>=10)
 	{
-		Application.LoadLevel("endScene");
+		Application.LoadLevel("MainMenu");
 	}
 	
 	//generate a random number

@@ -8,7 +8,7 @@ function Start () {
 function Update () {
  
 var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-if (Input.GetButtonDown("Fire1"))
+if (Input.GetButtonUp("Fire1"))
 {
  
 	if (Physics.Raycast(ray, hit, Mathf.Infinity))
@@ -20,23 +20,29 @@ if (Input.GetButtonDown("Fire1"))
 		
 		if (hit.collider.tag=="How")
 		{	
-			Application.LoadLevel ("Level1");
+			Application.LoadLevel ("how");
 		}
 		
 		if (hit.collider.tag=="Exit")
 		{	
-			Application.LoadLevel ("Level1");
+			 Application.Quit();
 		}
 		
 		if (hit.collider.tag=="Credits")
 		{	
-			Application.LoadLevel ("Level1");
+			Application.OpenURL("http://www.hyparc.net/p/crunch-credits.html");
 		}
 		
 		if (hit.collider.tag=="Tips")
 		{	
-			Application.LoadLevel ("Level1");
+			Application.OpenURL("http://www.nhs.uk/Conditions/stress-anxiety-depression/Pages/understanding-stress.aspx");
 		}
+		
+		if (hit.collider.tag=="Back")
+		{	
+			Application.LoadLevel ("MainMenu");
+		}
+			
 				
  
 	}

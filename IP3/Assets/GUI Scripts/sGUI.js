@@ -14,7 +14,7 @@ var Stress9 : GameObject;
 var Stress10 : GameObject;
 
 
-stress = 3;
+stress = 0;
 
 function Start () {
 

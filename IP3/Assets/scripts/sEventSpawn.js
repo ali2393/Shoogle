@@ -31,6 +31,10 @@ var workTag : int = 0;
 var socialTag : int = 0;
 var studyTag : int = 0;
 
+function Start()
+{
+	studyTag = 1;
+}
 
 function OnTriggerEnter(oEnd:Collider)
 {
@@ -78,8 +82,8 @@ function OnTriggerEnter(oEnd:Collider)
 			var clonepSocialEvent : GameObject = Instantiate(pStudyEvent, new Vector3(-9.908167,0.188241,0.09814334), pStudyEvent.transform.rotation) as GameObject;
 			
 			workTag = 0;
-			socialTag = 1;
-			studyTag = 0;
+			socialTag = 0;
+			studyTag = 1;
 		}
 		
 		//If the random number is 2 then spawn a clone of the Study Event
@@ -94,8 +98,8 @@ function OnTriggerEnter(oEnd:Collider)
 			var clonepStudyEvent : GameObject = Instantiate(pSocialEvent, new Vector3(-9.908167,0.188241,0.09814334), pStudyEvent.transform.rotation) as GameObject;
 			
 			workTag = 0;
-			socialTag = 0;
-			studyTag = 1;			
+			socialTag = 1;
+			studyTag = 0;			
 		}
 		
 		//If the random number is 3 then spawn a clone of the Social Event
